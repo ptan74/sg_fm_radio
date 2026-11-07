@@ -1,5 +1,7 @@
 # SG FM Radio for ESP-Mosaico
 
+![SG FM Radio on ESP-Mosaico, tuned to 97.2 Love 972](docs/screenshot.jpg)
+
 An FM-radio style player for Singapore's local stations. Sweep the dial,
 seek, or tap a station chip to tune in. ESP-Mosaico has no FM tuner chip, so
 each station plays from its official live internet stream over Wi-Fi
