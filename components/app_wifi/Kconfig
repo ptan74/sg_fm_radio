@@ -1,0 +1,16 @@
+menu "SG FM Radio Wi-Fi"
+
+    config APP_WIFI_SSID
+        string "Fallback Wi-Fi SSID"
+        default ""
+        help
+            Used only when no network is saved in Vibe Mode's Wi-Fi settings.
+            Put real values in sdkconfig.local.defaults, not in Git.
+
+    config APP_WIFI_PASSWORD
+        string "Fallback Wi-Fi password"
+        default ""
+        help
+            Password for APP_WIFI_SSID; leave empty for an open network.
+
+endmenu

@@ -1,0 +1,512 @@
+{
+  "screen": "radio",
+  "w": 480,
+  "h": 480,
+  "screen_bg": "#14130F",
+  "font": "fonts/DejaVuSans.ttf",
+  "default_font_size": 18,
+  "swipe": false,
+  "objects": [
+    {
+      "type": "label",
+      "parent": -1,
+      "name": "wifi_status",
+      "bind": "wifi_status",
+      "x": 24,
+      "y": 16,
+      "w": 150,
+      "h": 24,
+      "text": "Wi-Fi",
+      "font_size": 15,
+      "fg_color": "#B4B2A9"
+    },
+    {
+      "type": "container",
+      "parent": -1,
+      "name": "status_pill",
+      "bind": "status_pill",
+      "bind_target": "color",
+      "x": 176,
+      "y": 13,
+      "w": 128,
+      "h": 30,
+      "radius": 15,
+      "bg_color": "#3A3935"
+    },
+    {
+      "type": "label",
+      "parent_name": "status_pill",
+      "name": "status",
+      "bind": "status",
+      "x": 0,
+      "y": 0,
+      "w": 128,
+      "h": 30,
+      "text": "Searching",
+      "font_size": 15,
+      "fg_color": "#F1EFE8",
+      "text_align": "center"
+    },
+    {
+      "type": "button",
+      "parent": -1,
+      "name": "volume",
+      "callback": "volume",
+      "x": 350,
+      "y": 11,
+      "w": 106,
+      "h": 34,
+      "radius": 17,
+      "bg_color": "#14130F",
+      "border_color": "#444441",
+      "border_width": 1
+    },
+    {
+      "type": "label",
+      "parent_name": "volume",
+      "name": "volume_text",
+      "bind": "volume_text",
+      "x": 0,
+      "y": 0,
+      "w": 106,
+      "h": 34,
+      "text": "Vol 60%",
+      "font_size": 15,
+      "fg_color": "#B4B2A9",
+      "text_align": "center"
+    },
+    {
+      "type": "label",
+      "parent": -1,
+      "name": "freq",
+      "bind": "freq",
+      "x": 10,
+      "y": 52,
+      "w": 315,
+      "h": 88,
+      "text": "95.0",
+      "font_size": 78,
+      "font": "fonts/DejaVuSans-Bold.ttf",
+      "fg_color": "#FAC775",
+      "text_align": "right",
+      "font_charset": "0123456789."
+    },
+    {
+      "type": "label",
+      "parent": -1,
+      "x": 333,
+      "y": 102,
+      "w": 90,
+      "h": 30,
+      "text": "MHz",
+      "font_size": 24,
+      "fg_color": "#B4B2A9"
+    },
+    {
+      "type": "label",
+      "parent": -1,
+      "name": "station_name",
+      "bind": "station_name",
+      "x": 20,
+      "y": 146,
+      "w": 440,
+      "h": 36,
+      "text": "Class 95",
+      "font_size": 28,
+      "font": "fonts/DejaVuSans-Bold.ttf",
+      "fg_color": "#F1EFE8",
+      "text_align": "center"
+    },
+    {
+      "type": "label",
+      "parent": -1,
+      "name": "tagline",
+      "bind": "tagline",
+      "x": 20,
+      "y": 184,
+      "w": 440,
+      "h": 24,
+      "text": "English pop - Mediacorp",
+      "font_size": 17,
+      "fg_color": "#B4B2A9",
+      "text_align": "center"
+    },
+    {
+      "type": "container",
+      "parent": -1,
+      "x": 0,
+      "y": 218,
+      "w": 480,
+      "h": 1,
+      "bg_color": "#2C2C2A"
+    },
+    {
+      "type": "container",
+      "parent": -1,
+      "name": "dial_view",
+      "x": 0,
+      "y": 220,
+      "w": 480,
+      "h": 84,
+      "bg_color": "#14130F",
+      "clip_children": true
+    },
+    {
+      "type": "image",
+      "parent_name": "dial_view",
+      "name": "dial_strip",
+      "x": {
+        "default": -450,
+        "min": -1230,
+        "max": 0
+      },
+      "y": 0,
+      "w": 1710,
+      "h": 84,
+      "image": "dial_strip.png"
+    },
+    {
+      "type": "container",
+      "parent": -1,
+      "x": 0,
+      "y": 305,
+      "w": 480,
+      "h": 1,
+      "bg_color": "#2C2C2A"
+    },
+    {
+      "type": "container",
+      "parent": -1,
+      "x": 239,
+      "y": 214,
+      "w": 2,
+      "h": 96,
+      "bg_color": "#E24B4A"
+    },
+    {
+      "type": "slider",
+      "parent": -1,
+      "name": "dial_jog",
+      "x": 0,
+      "y": 212,
+      "w": 480,
+      "h": 100,
+      "min": 0,
+      "max": 100,
+      "value": 50,
+      "track_size": 4,
+      "radius": 0,
+      "bg_color": "#00000000",
+      "fg_color": "#00000000",
+      "knob_color": "#00000000",
+      "events": [
+        {
+          "event": "value",
+          "action": "call",
+          "target_name": "dial_jog"
+        },
+        {
+          "event": "release",
+          "action": "call",
+          "target_name": "dial_release"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "parent": -1,
+      "name": "seek_down",
+      "callback": "seek_down",
+      "x": 130,
+      "y": 326,
+      "w": 60,
+      "h": 60,
+      "radius": 30,
+      "bg_color": "#14130F",
+      "border_color": "#5F5E5A",
+      "border_width": 1,
+      "text": "◀◀",
+      "font_size": 18,
+      "fg_color": "#F1EFE8"
+    },
+    {
+      "type": "button",
+      "parent": -1,
+      "name": "play_pause",
+      "callback": "play_pause",
+      "x": 204,
+      "y": 320,
+      "w": 72,
+      "h": 72,
+      "radius": 36,
+      "bg_color": "#EF9F27"
+    },
+    {
+      "type": "container",
+      "parent_name": "play_pause",
+      "name": "pause_icon",
+      "bind": "pause_icon",
+      "bind_target": "visible",
+      "x": 0,
+      "y": 0,
+      "w": 72,
+      "h": 72
+    },
+    {
+      "type": "container",
+      "parent_name": "pause_icon",
+      "x": 25,
+      "y": 23,
+      "w": 8,
+      "h": 26,
+      "radius": 2,
+      "bg_color": "#412402"
+    },
+    {
+      "type": "container",
+      "parent_name": "pause_icon",
+      "x": 39,
+      "y": 23,
+      "w": 8,
+      "h": 26,
+      "radius": 2,
+      "bg_color": "#412402"
+    },
+    {
+      "type": "label",
+      "parent_name": "play_pause",
+      "name": "play_icon",
+      "bind": "play_icon",
+      "bind_target": "visible",
+      "hidden": true,
+      "x": 4,
+      "y": 0,
+      "w": 68,
+      "h": 72,
+      "text": "▶",
+      "font_size": 30,
+      "fg_color": "#412402",
+      "text_align": "center"
+    },
+    {
+      "type": "button",
+      "parent": -1,
+      "name": "seek_up",
+      "callback": "seek_up",
+      "x": 290,
+      "y": 326,
+      "w": 60,
+      "h": 60,
+      "radius": 30,
+      "bg_color": "#14130F",
+      "border_color": "#5F5E5A",
+      "border_width": 1,
+      "text": "▶▶",
+      "font_size": 18,
+      "fg_color": "#F1EFE8"
+    },
+    {
+      "type": "button",
+      "parent": -1,
+      "name": "chip_0",
+      "x": 24,
+      "y": 410,
+      "w": 80,
+      "h": 40,
+      "radius": 20,
+      "bg_color": "#14130F",
+      "border_color": "#444441",
+      "border_width": 1,
+      "events": [
+        {
+          "event": "click",
+          "action": "call",
+          "target_name": "chip",
+          "arg": 0
+        }
+      ]
+    },
+    {
+      "type": "label",
+      "parent_name": "chip_0",
+      "name": "chip_0_text",
+      "bind": "chip_0_text",
+      "x": 0,
+      "y": 0,
+      "w": 80,
+      "h": 40,
+      "text": "95.0",
+      "font_size": 16,
+      "fg_color": "#D3D1C7",
+      "text_align": "center"
+    },
+    {
+      "type": "button",
+      "parent": -1,
+      "name": "chip_1",
+      "x": 112,
+      "y": 410,
+      "w": 80,
+      "h": 40,
+      "radius": 20,
+      "bg_color": "#14130F",
+      "border_color": "#444441",
+      "border_width": 1,
+      "events": [
+        {
+          "event": "click",
+          "action": "call",
+          "target_name": "chip",
+          "arg": 1
+        }
+      ]
+    },
+    {
+      "type": "label",
+      "parent_name": "chip_1",
+      "name": "chip_1_text",
+      "bind": "chip_1_text",
+      "x": 0,
+      "y": 0,
+      "w": 80,
+      "h": 40,
+      "text": "95.0",
+      "font_size": 16,
+      "fg_color": "#D3D1C7",
+      "text_align": "center"
+    },
+    {
+      "type": "button",
+      "parent": -1,
+      "name": "chip_2",
+      "x": 200,
+      "y": 410,
+      "w": 80,
+      "h": 40,
+      "radius": 20,
+      "bg_color": "#14130F",
+      "border_color": "#444441",
+      "border_width": 1,
+      "events": [
+        {
+          "event": "click",
+          "action": "call",
+          "target_name": "chip",
+          "arg": 2
+        }
+      ]
+    },
+    {
+      "type": "label",
+      "parent_name": "chip_2",
+      "name": "chip_2_text",
+      "bind": "chip_2_text",
+      "x": 0,
+      "y": 0,
+      "w": 80,
+      "h": 40,
+      "text": "95.0",
+      "font_size": 16,
+      "fg_color": "#D3D1C7",
+      "text_align": "center"
+    },
+    {
+      "type": "container",
+      "parent_name": "chip_2",
+      "name": "chip_lock",
+      "bind": "chip_lock",
+      "bind_target": "visible",
+      "x": 0,
+      "y": 0,
+      "w": 80,
+      "h": 40,
+      "radius": 20,
+      "bg_color": "#EF9F27"
+    },
+    {
+      "type": "label",
+      "parent_name": "chip_lock",
+      "name": "chip_lock_text",
+      "bind": "chip_lock_text",
+      "x": 0,
+      "y": 0,
+      "w": 80,
+      "h": 40,
+      "text": "95.0",
+      "font_size": 16,
+      "font": "fonts/DejaVuSans-Bold.ttf",
+      "fg_color": "#412402",
+      "text_align": "center"
+    },
+    {
+      "type": "button",
+      "parent": -1,
+      "name": "chip_3",
+      "x": 288,
+      "y": 410,
+      "w": 80,
+      "h": 40,
+      "radius": 20,
+      "bg_color": "#14130F",
+      "border_color": "#444441",
+      "border_width": 1,
+      "events": [
+        {
+          "event": "click",
+          "action": "call",
+          "target_name": "chip",
+          "arg": 3
+        }
+      ]
+    },
+    {
+      "type": "label",
+      "parent_name": "chip_3",
+      "name": "chip_3_text",
+      "bind": "chip_3_text",
+      "x": 0,
+      "y": 0,
+      "w": 80,
+      "h": 40,
+      "text": "95.0",
+      "font_size": 16,
+      "fg_color": "#D3D1C7",
+      "text_align": "center"
+    },
+    {
+      "type": "button",
+      "parent": -1,
+      "name": "chip_4",
+      "x": 376,
+      "y": 410,
+      "w": 80,
+      "h": 40,
+      "radius": 20,
+      "bg_color": "#14130F",
+      "border_color": "#444441",
+      "border_width": 1,
+      "events": [
+        {
+          "event": "click",
+          "action": "call",
+          "target_name": "chip",
+          "arg": 4
+        }
+      ]
+    },
+    {
+      "type": "label",
+      "parent_name": "chip_4",
+      "name": "chip_4_text",
+      "bind": "chip_4_text",
+      "x": 0,
+      "y": 0,
+      "w": 80,
+      "h": 40,
+      "text": "95.0",
+      "font_size": 16,
+      "fg_color": "#D3D1C7",
+      "text_align": "center"
+    }
+  ]
+}
